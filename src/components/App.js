@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import rickandmorty from "../api/rickandmorty";
 import Header from "./Header";
 import Cards from "./cards/Cards";
 import Pagination from "./Pagination";
@@ -29,8 +29,8 @@ const App = () => {
       setState({ ...state, status: "loading" });
 
       try {
-        const response = await axios.get(
-          `https://rickandmortyapi.com/api/character?page=${state.activePage}&name=${state.searchTerm}`
+        const response = await rickandmorty.get(
+          `/character?page=${state.activePage}&name=${state.searchTerm}`
         );
         setState({
           ...state,

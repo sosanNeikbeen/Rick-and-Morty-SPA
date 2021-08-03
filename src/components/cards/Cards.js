@@ -3,7 +3,7 @@ import { Container, Grid, Image, Button } from "semantic-ui-react";
 import "./card.css";
 import Modal from "../Modal";
 
-function exampleReducer(state, action) {
+const ModalReducer = (state, action) => {
   switch (action.type) {
     case "OPEN_MODAL":
       return {
@@ -17,9 +17,9 @@ function exampleReducer(state, action) {
     default:
       throw new Error();
   }
-}
+};
 const Cards = ({ data }) => {
-  const [state, dispatch] = useReducer(exampleReducer, {
+  const [state, dispatch] = useReducer(ModalReducer, {
     open: false,
     dimmer: undefined,
     size: undefined,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import rickandmorty from "../api/rickandmorty";
 import {
   Modal,
   Button,
@@ -16,9 +16,7 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          `https://rickandmortyapi.com/api/character/${id}`
-        );
+        const response = await rickandmorty.get(`/character/${id}`);
         setData(response.data);
       } catch (error) {
         console.log(error);
@@ -34,7 +32,6 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
         <Header as="h2" textAlign="center">
           {data.name}
         </Header>
-
         <Modal.Content>
           <Grid>
             <Grid.Row>
@@ -52,7 +49,6 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
             </GridRow>
           </Grid>
         </Modal.Content>
-
         <Modal.Actions>
           <Button negative onClick={onClose}>
             Close
