@@ -9,15 +9,9 @@ import Error from "./Error";
 const App = () => {
   const [state, setState] = useState({
     data: [],
-    activePage: 1,
-    boundaryRange: 1,
-    siblingRange: 1,
-    showEllipsis: true,
-    showFirstAndLastNav: true,
-    showPreviousAndNextNav: true,
-    totalPages: 0,
     status: "idle",
     searchTerm: "",
+    totalPages: 0,
   });
 
   const handleChange = (event) => {
@@ -66,12 +60,12 @@ const App = () => {
       {state.status === "loading" && <Spinner />}
       {state.status === "error" ? <Error /> : <Cards data={state.data} />}
       <Pagination
-        activePage={state.activePage}
-        boundaryRange={state.boundaryRange}
-        siblingRange={state.siblingRange}
-        showEllipsis={state.showEllipsis}
-        showFirstAndLastNav={state.showFirstAndLastNav}
-        showPreviousAndNextNav={state.showPreviousAndNextNav}
+        activePage={1}
+        boundaryRange={1}
+        siblingRange={1}
+        showEllipsis={true}
+        showFirstAndLastNav={true}
+        showPreviousAndNextNav={true}
         totalPages={state.totalPages}
         handlePaginationChange={handlePaginationChange}
       />
