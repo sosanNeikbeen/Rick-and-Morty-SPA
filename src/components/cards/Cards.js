@@ -13,7 +13,7 @@ const ModalReducer = (state, action) => {
         id: action.id,
       };
     case "CLOSE_MODAL":
-      return { open: false };
+      return { ...state, open: false };
     default:
       throw new Error();
   }

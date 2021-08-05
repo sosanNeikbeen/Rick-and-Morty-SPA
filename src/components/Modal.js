@@ -14,7 +14,7 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (id) => {
       try {
         const response = await rickandmorty.get(`/character/${id}`);
         setData(response.data);
@@ -23,7 +23,7 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
       }
     };
 
-    getData();
+    getData(id);
   }, [id]);
 
   return (
