@@ -12,6 +12,7 @@ const App = () => {
     status: "idle",
     searchTerm: "",
     totalPages: 0,
+    activePage: 1,
   });
 
   const handleChange = (event) => {
@@ -60,7 +61,7 @@ const App = () => {
       {state.status === "loading" && <Spinner />}
       {state.status === "error" ? <Error /> : <Cards data={state.data} />}
       <Pagination
-        activePage={1}
+        activePage={state.activePage}
         boundaryRange={1}
         siblingRange={1}
         showEllipsis={true}
