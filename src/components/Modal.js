@@ -27,35 +27,33 @@ const CustomModal = ({ dimmer, size, onClose, open, id }) => {
   }, [id]);
 
   return (
-    <div>
-      <Modal dimmer={dimmer} size={size} open={open} onClose={onClose}>
-        <Header as="h2" textAlign="center">
-          {data.name}
-        </Header>
-        <Modal.Content>
-          <Grid>
-            <Grid.Row>
-              <Grid.Column textAlign="center">
-                <Image src={data.image} fluid circular />
-              </Grid.Column>
-            </Grid.Row>
-            <GridRow>
-              <Grid.Column textAlign="center">
-                <List>
-                  <List.Item>species: {data.species}</List.Item>
-                  <List.Item>Status: {data.status}</List.Item>
-                </List>
-              </Grid.Column>
-            </GridRow>
-          </Grid>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button negative onClick={onClose}>
-            Close
-          </Button>
-        </Modal.Actions>
-      </Modal>
-    </div>
+    <Modal dimmer={dimmer} size={size} open={open} onClose={onClose}>
+      <Header as="h2" textAlign="center">
+        {data.name}
+      </Header>
+      <Modal.Content>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column textAlign="center">
+              <Image src={data.image} fluid circular />
+            </Grid.Column>
+          </Grid.Row>
+          <GridRow>
+            <Grid.Column textAlign="center">
+              <List>
+                <List.Item>species: {data.species}</List.Item>
+                <List.Item>Status: {data.status}</List.Item>
+              </List>
+            </Grid.Column>
+          </GridRow>
+        </Grid>
+      </Modal.Content>
+      <Modal.Actions>
+        <Button negative onClick={onClose}>
+          Close
+        </Button>
+      </Modal.Actions>
+    </Modal>
   );
 };
 
